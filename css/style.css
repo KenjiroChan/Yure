@@ -1,12 +1,14 @@
-/* colours: washi paper background, sumi ink text, and 3 Japanese pigments for depth
-   (shu/vermilion = shallow, kohaku/amber = middle, ai/indigo = deep) */
+/* YURE - style.css
+   colours: black background with gold accents.
+   quake depth: bright gold = shallow, bronze = middle, pewter grey = deep */
 
 :root {
-  --paper: #f2ece1;
-  --ink: #1d1b18;
-  --ink-soft: #6b655b;
-  --line: #d6ccba;
-  --shu: #d23f2a;
+  --bg: #0d0c0a;
+  --panel: #15130f;
+  --text: #efe6d2;
+  --text-soft: #9a907c;
+  --line: #2e2a22;
+  --gold: #d4a943;
 
   /* main.js changes these two based on the data */
   --tremble: 0px;
@@ -19,8 +21,8 @@
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--text);
   font-family: "Shippori Mincho", Georgia, serif;
   line-height: 1.5;
 }
@@ -32,7 +34,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration-color: var(--shu);
+  text-decoration-color: var(--gold);
 }
 
 button {
@@ -47,7 +49,7 @@ button {
 }
 
 
-/* header */
+/* ---- header ---- */
 
 .top {
   display: flex;
@@ -66,7 +68,7 @@ button {
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--shu);
+  color: var(--gold);
   animation: tremble 0.18s infinite;
 }
 
@@ -88,26 +90,26 @@ button {
   gap: 0.5rem;
   margin: 0;
   font-size: 0.75rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--shu);
+  background: var(--gold);
   animation: pulse var(--pulse) infinite;
 }
 
 /* grey dot when the connection fails */
 .status.error .status-dot {
-  background: var(--ink-soft);
+  background: var(--text-soft);
   animation: none;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(210, 63, 42, 0.5); }
-  70% { box-shadow: 0 0 0 8px rgba(210, 63, 42, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(212, 169, 67, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(212, 169, 67, 0); }
 }
 
 
@@ -123,7 +125,7 @@ button {
 
 .headline em {
   font-style: normal;
-  color: var(--shu);
+  color: var(--gold);
 }
 
 
@@ -139,33 +141,35 @@ button {
 .btn, .tabs button {
   padding: 0.55rem 1rem;
   background: transparent;
+  color: var(--gold);
   font-size: 0.82rem;
   cursor: pointer;
 }
 
 .btn, .tabs {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--gold);
   border-radius: 99px;
 }
 
 .btn:hover {
-  background: rgba(29, 27, 24, 0.06);
+  background: rgba(212, 169, 67, 0.12);
 }
 
+/* the gold Listen button */
 .btn-dark {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  color: var(--bg);
 }
 
 .btn-dark:hover {
-  background: #000;
+  background: #e6bf5c;
 }
 
-/* red when sound is on or the replay is playing */
+/* glowing gold when sound is on or the replay is playing */
 .btn.on {
-  background: var(--shu);
-  border-color: var(--shu);
-  color: #fff;
+  background: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 14px rgba(212, 169, 67, 0.55);
 }
 
 .tabs {
@@ -179,18 +183,18 @@ button {
 }
 
 .tabs button.active {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  color: var(--bg);
 }
 
 
-/* map */
+/* ---- map ---- */
 
 .stage {
   position: relative;
   aspect-ratio: 1440 / 552; /* same shape as the map image so the circles line up */
   border-radius: 8px;
-  background: #f8f4ec;
+  background: var(--panel);
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
@@ -213,7 +217,7 @@ button {
   gap: 0.4rem 1.2rem;
   margin-top: 0.6rem;
   font-size: 0.72rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .legend i {
@@ -229,7 +233,7 @@ button {
 }
 
 
-/* quake card + pop-up (hidden until main.js adds "show") */
+/* ---- quake card + pop-up (hidden until main.js adds "show") ---- */
 
 .card, .toast {
   display: none;
@@ -245,8 +249,8 @@ button {
   width: 260px;
   padding: 0.8rem 1rem;
   border-radius: 8px;
-  background: var(--paper);
-  box-shadow: 0 0 0 1px var(--ink), 6px 6px 0 rgba(29, 27, 24, 0.1);
+  background: var(--panel);
+  box-shadow: 0 0 0 1px var(--gold), 6px 6px 0 rgba(0, 0, 0, 0.5);
   font-size: 0.9rem;
 }
 
@@ -266,13 +270,14 @@ button {
   margin: 0;
   font-size: 0.74rem;
   line-height: 1.7;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 .card a {
   display: inline-block;
   margin-top: 0.4rem;
   font-size: 0.74rem;
+  color: var(--gold);
 }
 
 .card-close {
@@ -293,8 +298,8 @@ button {
   max-width: 90%;
   padding: 0.35rem 0.8rem;
   border-radius: 99px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--gold);
+  color: var(--bg);
   font-size: 0.74rem;
   white-space: nowrap;
   overflow: hidden;
@@ -302,7 +307,7 @@ button {
 }
 
 
-/*latest list*/
+/* ---- latest list ---- */
 
 .list-title {
   margin: 2.5rem 0 0.5rem;
@@ -314,7 +319,7 @@ button {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--gold);
 }
 
 .list li {
@@ -327,16 +332,17 @@ button {
 }
 
 .list li:hover {
-  background: rgba(29, 27, 24, 0.04);
+  background: rgba(212, 169, 67, 0.06);
 }
 
+/* black text so it shows up on all three depth colours */
 .list-mag {
   flex: none;
   width: 3rem;
   padding: 0.25rem 0;
   border-radius: 4px;
   text-align: center;
-  color: #fff;
+  color: var(--bg);
 }
 
 .list-place {
@@ -346,18 +352,18 @@ button {
 
 .list-time {
   font-size: 0.72rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
   white-space: nowrap;
 }
 
 .foot {
   margin-top: 2.5rem;
   font-size: 0.72rem;
-  color: var(--ink-soft);
+  color: var(--text-soft);
 }
 
 
-/* stuff for responsiveness */
+/* ---- phones ---- */
 
 @media (max-width: 600px) {
   .page {
