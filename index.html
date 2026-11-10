@@ -21,6 +21,7 @@
         </header>
         <h1 class="headline" id="headline">Listening to earth's pulse...</h1>
 
+        <!-- Controls basically the buttons for the users to use-->
         <div class="controls">
             <button class="btn btn-dark" id="listenBtn">Listen</button>
             <button class="btn" id="playBtn">Replay</button>
@@ -29,7 +30,37 @@
                 <button data-window="day" class="active">Day</button>
                 <button data-window="week">Week</button>
             </div>
+
         </div>
+        <!--Map-->
+        <!--Stage area will stack 2 layers 1. world map 2. canvas on top where Javascript draws circle for each earthquake-->
+        <div class="stage">
+            <img src="assets/world-map.svg" class="map-img">
+            <!-- The canvas is a blank drawing surface that main.js draws on about 60 times a second -->
+            <canvas id="map"></canvas>
+            <div class="card" id="card"></div>
+            <!-- The little pop-up message that appears when a brand-new quake arrives (hidden until then) -->
+            <div class="toast" id="toast"></div>
+        </div>
+
+        <!-- Explanation (Legend) -->
+         <div class="legend">
+            <span><i style="background:#d23f2a"></i> shallow</span>
+            <span><i style="background:#c98a1b"></i> middle</span>
+            <span><i style="background:#d23f2a"></i> deep</span>
+            <span class="legend-size">bigger circle = stronger earthquake</span>
+         </div>
+
+        <!-- Most recent list -->
+        <h2 class="list-title">Latest Earthquakes</h2>
+        <ol class="list" id="list"></ol>
+
+        <!-- Footer -->
+        <footer class="foot">
+            Live data from the <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" target="_blank">USGS</a>, checked every minute · CCT360 
+        </footer>
         
+        <script src="js/sound.js"></script>
+        <script src="js/main.js"></script>
     </div>
 </body>
