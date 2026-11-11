@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>揺れ YURE · the planet, played live</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,41 +12,43 @@
 <body>
   <div class="page">
 
-    <header class="top">
+    <header class=top>
       <div class="brand">
         <span class="brand-kanji">揺れ</span>
         <span class="brand-name">YURE</span>
       </div>
-      <p class="status"><span class="status-dot"></span><span id="statusText">Connecting...</span></p>
+      <p class="status"><span class="status-dot"></span><span id='statusText'>Connecting...</span></p>
     </header>
 
     <h1 class="headline" id="headline">Listening for the Earth...</h1>
 
     <div class="controls">
       <button class="btn btn-dark" id="listenBtn">Listen</button>
-      <button class="btn" id="playBtn">▶ Replay</button>
+        <button class="btn" id="playBtn">▶ Replay</button>
       <div class="tabs" id="windowBtns">
         <button data-window="hour">Hour</button>
-        <button data-window="day" class="active">Day</button>
+        <button class="active" data-window="day">Day</button>
         <button data-window="week">Week</button>
       </div>
     </div>
 
     <div class="stage">
-      <img src="assets/world-map.svg" alt="" class="map-img">
+      <img src="assets/world-map.svg" alt="" class="map-img"/>
       <canvas id="map"></canvas>
       <div class="card" id="card"></div>
       <div class="toast" id="toast"></div>
     </div>
 
     <div class="legend">
-      <span><i style="background:#d23f2a"></i>shallow</span>
-      <span><i style="background:#c98a1b"></i>middle</span>
-      <span><i style="background:#24447a"></i>deep</span>
-      <span class="legend-size">bigger circle = stronger quake</span>
+      <span><i style="background:#f2c14e"></i>shallow</span>
+      <span><i style="background: #B8792E;"></i>middle</span>
+      <span><i style="background:#8a8f9c"></i>deep</span>
+        <span class="legend-size">bigger circle = stronger quake</span>
     </div>
 
     <h2 class="list-title">Latest</h2>
+
+
     <ol class="list" id="list"></ol>
 
     <footer class="foot">
@@ -54,7 +56,7 @@
     </footer>
   </div>
 
-  <script src="js/sound.js"></script>
+  <script src="js/sound.js" ></script>
   <script src="js/main.js"></script>
 </body>
 </html>
