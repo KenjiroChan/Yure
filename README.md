@@ -59,7 +59,6 @@ HTML, CSS and JavaScript only, with no libraries or frameworks. It uses the Fetc
 - **Fonts:** Shippori Mincho and IBM Plex Mono, from Google Fonts (SIL Open Font License)
 - **Musical scale:** the notes come from the Japanese *in* scale (D, E♭, G, A, B♭)
 - **Distance formula:** the haversine formula, used to work out the distance from Toronto on each card
-- **AI assistance:** Claude (Anthropic) was used as a coding assistant during development
 
 ## Roles
 
