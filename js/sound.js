@@ -1,17 +1,13 @@
-/* Makes sound for each quake using the WEB AUDIO API. */
-// Sound depends on depth, magnitute, east/west of Toronto
 
 let audioCtx=null;
 let soundOn=false;
 
-/* notes from the Japanese "in" scale (D, Eb, G, A, Bb), three octaves, low to high */
 const notes = [
   146.8, 155.6, 196.0, 220.0, 233.1,
   293.7, 311.1, 392.0, 440.0, 466.2,
   587.3, 622.3, 784.0, 880.0, 932.3
 ];
 
-/* The browser won't play sounds until the user interacts with the page */
 function startSound() {
     if (audioCtx==null) {
         audioCtx=new AudioContext();
@@ -24,7 +20,6 @@ function stopSound() {
     soundOn=false;
 }
 
-/* plays one tone that fades in really fast and then fades out slowly, so it sounds like a bell */
 function playTone(frequency, volume, length, panner){
     let now = audioCtx.currentTime;
     let osc = audioCtx.createOscillator();
@@ -50,7 +45,7 @@ function playQuake(quake, listenerLon){
 
     /* the bigger the quake, the louder and longer the note */
     let mag = Math.max(quake.mag, 0);
-    let volume = Math.min(0.5 + mag*.06,0.45);
+    let volume = Math.min(0.05 + mag*.06,0.45);
     let length= 0.3 + mag * 0.6;
 
     /* how far east/west of Toronto the quake is */
@@ -64,7 +59,6 @@ function playQuake(quake, listenerLon){
     panner.connect(audioCtx.destination);
     playTone(freq, volume, length, panner);
 
-    /* plays one tone that fades in really fast and then fades out slowly, so it sounds like a bell */
     if (mag>=4.5){
         playTone(freq/2, volume*0.8, length*1.5, panner);
     }
